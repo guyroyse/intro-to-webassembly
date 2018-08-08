@@ -19,6 +19,7 @@
 $backgroundColor: #fff;
 
 $mainColor: #000;
+$bigHeadingColor: #000;
 $headingColor: #09f;
 
 $mainFontSize: 42px;
@@ -26,7 +27,7 @@ $mainFont: 'Roboto', sans-serif;
 $headingFont: 'Roboto', sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
-$headingTextTransform: uppercase;
+$headingTextTransform: none;
 $headingFontWeight: 600;
 $linkColor: #09f;
 $linkColorHover: lighten( $linkColor, 15% );
@@ -38,18 +39,275 @@ $heading3Size: 1.3em;
 $heading4Size: 1.0em;
 
 section.has-light-background {
-	&, h1, h2, h3, h4, h5, h6 {
-		color: #222;
-	}
+  &, h1, h2, h3, h4, h5, h6 {
+    color: #222;
+  }
 }
-
-section.has-dark-background {
-	img {
-		background: #000 !important;
-	}
-}
-
 
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
+
+.reveal h1 {
+  color: $bigHeadingColor;
+}
+
+.reveal section img {
+  background: rgba($color: #000000, $alpha: 0.0);
+  border-style: none;
+  box-shadow: none;
+}
+
+.reveal section img.with-border {
+  background: rgba($color: #000000, $alpha: 0.0);
+  border: 4px solid $mainColor;
+  box-shadow: none;
+}
+
+.reveal ul {
+  margin-left: 60px;
+}
+
+.reveal pre {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.reveal pre code {
+  padding: 15px;
+}
+
+@mixin has-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  min-height: 90vh;
+  max-height: 90vh;
+}
+
+@mixin has-main-title {
+  h1 {
+    grid-column: 1 / span 8;
+    grid-row: 2;
+    text-align: left;
+    margin-left: 30px;
+  }
+}
+
+@mixin has-subtitle {
+  h2 {
+    grid-column: 1 / span 5;
+    grid-row: 3 / span 2;
+    text-align: left;
+    margin-left: 30px;
+  }
+}
+
+@mixin has-title {
+  .title {
+    grid-column: 2 / span 6;
+  }
+}
+
+@mixin has-main-text {
+  .main-text {
+    grid-column: 2 / span 6;
+    grid-row: 2 / span 3;
+    align-self: start;
+    justify-self: center;
+    text-align: left;
+  }
+}
+
+@mixin has-left-text {
+  .left-text {
+    grid-column: 2 / span 3;
+    grid-row: 2 / span 3;
+    align-self: start;
+    justify-self: center;
+    text-align: left;
+    margin-right: 20px;
+  }
+}
+
+@mixin has-right-text {
+  .right-text {
+    grid-column: 5 / span 3;
+    grid-row: 2 / span 3;
+    align-self: start;
+    justify-self: center;
+    text-align: left;
+    margin-left: 20px;
+  }
+}
+
+@mixin has-main-picture {
+  .main-picture {
+    grid-column: 2 / span 6;
+    grid-row: 2 / span 3;
+    align-self: start;
+    justify-self: center;
+    border: 2px solid $mainColor;
+    margin: 0;
+  }
+}
+
+@mixin has-left-picture {
+  .left-picture {
+    grid-column: 2 / span 3;
+    grid-row: 2 / span 3;
+    align-self: start;
+    justify-self: start;
+    border: 2px solid $mainColor;
+    margin: 0;
+    margin-right: 20px;
+  }
+}
+
+@mixin has-right-picture {
+  .right-picture {
+    grid-column: 5 / span 3;
+    grid-row: 2 / span 3;
+    align-self: start;
+    justify-self: end;
+    border: 2px solid $mainColor;
+    margin: 0;
+    margin-left: 20px;
+  }
+}
+
+@mixin has-splash {
+  .splash {
+    grid-column: 1 / span 8;
+    grid-row: 1 / span 5;
+    place-self: center;
+  }
+}
+
+@mixin has-logo {
+  .logo {
+    grid-column: 7 / span 2;
+    grid-row: 5;
+    justify-self: end;
+    align-self: end;
+    margin: 0;
+  }
+}
+
+@mixin has-icon-logo {
+  .logo {
+    grid-column: 8;
+    grid-row: 5;
+    align-self: end;
+    justify-self: end;
+    width: 25%;
+    margin: 0;
+  }
+}
+
+@mixin has-headshot {
+  .headshot {
+    grid-column: 2 / span 2;
+    grid-row: 2 / span 3;
+    justify-self: center;
+    align-self: center;
+    border-radius: 50%;
+    margin: 0;
+  }
+}
+
+@mixin has-about {
+  .about {
+    grid-column: 4 / span 4;
+    grid-row: 2 / span 3;
+    justify-self: start;
+    align-self: center;
+    text-align: left;
+    padding: 30px;
+    padding-left: 60px;
+    margin-left: 60px;
+    border-left-style: solid;
+    border-left-color: $mainColor;
+    border-left-width: 2px;
+    .name, .title, .employer, .email, .twitter {
+      margin: 0;
+    }
+    .employer {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+.splash-slide {
+  @include has-grid();
+  @include has-splash();
+}
+
+.about-slide {
+  @include has-grid();
+  @include has-headshot();
+  @include has-about();
+  @include has-icon-logo();
+}
+
+.title-slide {
+  @include has-grid();
+  @include has-main-title();
+  @include has-subtitle();
+  @include has-logo();
+}
+
+.text-slide {
+  @include has-grid();
+  @include has-title();
+  @include has-main-text();
+  @include has-icon-logo();
+}
+
+.picture-slide {
+  @include has-grid();
+  @include has-title();
+  @include has-main-picture();
+  @include has-icon-logo();
+}
+
+.text-text-slide {
+  @include has-grid();
+  @include has-title();
+  @include has-left-text();
+  @include has-right-text();
+  @include has-icon-logo();
+}
+
+.picture-picture-slide {
+  @include has-grid();
+  @include has-title();
+  @include has-left-picture();
+  @include has-right-picture();
+  @include has-icon-logo();
+}
+
+.picture-text-slide {
+  @include has-grid();
+  @include has-title();
+  @include has-left-picture();
+  @include has-right-text();
+  @include has-icon-logo();
+}
+
+.text-picture-slide {
+  @include has-grid();
+  @include has-title();
+  @include has-left-text();
+  @include has-right-picture();
+  @include has-icon-logo();
+}
+
+.text-with-icon-slide {
+  @include has-grid();
+  @include has-title();
+  @include has-left-picture();
+  @include has-right-text();
+  @include has-icon-logo();
+}
+
