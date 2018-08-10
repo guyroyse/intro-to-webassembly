@@ -51,21 +51,24 @@ function jsFizzBuzz() {
 }
 
 function rustFizzBuzz() {
-  return wasmFizzBuzz('rust/fizzbuzz.wasm', onFizzBuzzComputed)
+  let imports = {
+    env: {
+      callback: onFizzBuzzComputed
+    }
+  }
+  return wasmFizzBuzz('rust/fizzbuzz.wasm', imports)
 }
 
 function wabtFizzBuzz() {
-  return wasmFizzBuzz('webassembly/fizzbuzz.wasm', onFizzBuzzComputed)
-}
-
-function wasmFizzBuzz(path, callback) {
-
   let imports = {
     fizzbuzz: {
-      callback: callback
+      callback: onFizzBuzzComputed
     }
   }
+  return wasmFizzBuzz('webassembly/fizzbuzz.wasm', imports)
+}
 
+function wasmFizzBuzz(path, imports) {
   return fetch(path)
     .then(response => response.arrayBuffer())
     .then(bytes => WebAssembly.instantiate(bytes, imports))
