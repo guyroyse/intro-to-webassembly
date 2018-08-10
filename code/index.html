@@ -13,35 +13,27 @@
 
     <h1>Fizzing all the Buzzes Since 1972</h1>
 
-    <h2>Enter a value to be fizzbuzzed...</h2>
+    <h2>Enter a value to be fizz-buzzed...</h2>
+    <p><input type="text" id="value"/></p>
 
-    <p>
-      <label for="value">Value</label>
-      <input id="value"/>
-    </p>
-
-    <h2>...select a fizzbuzzing mechanism...</h2>
+    <h2>...select a fizz-buzzing mechanism...</h2>
 
     <p>
       <input type="radio" name="mechanism" id="js" value="js" checked />
       <label for="js">JavaScript</label>
-    </p>
 
-    <p>
       <input type="radio" name="mechanism" id="rust" value="rust" />
       <label for="rust">Rust WebAssembly</label>
-    </p>
 
-    <p>
       <input type="radio" name="mechanism" id="wabt" value="wabt" />
       <label for="wabt">WebAssembly Text Format</label>
     </p>
 
-    <h2>...and get some results!</h2>
+    <h2>...click the button...</h2>
+    <p><button id="fizzbuzz">Fizz Buzz</button></p>
 
-    <p>
-      <button id="fizzbuzz">FizzBuzz</button><input id="result" />
-    </p>
+    <h2>...and get some results!</h2>
+    <p><input type="text" id="result" /></p>
 
   </body>
 
