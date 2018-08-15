@@ -263,6 +263,39 @@
         </section>
 
         <section>
+          <div class="text-slide">
+            <h1 class="title">Using a WebAssembly Module</h1>
+            <article class="main-text">
+              <pre style="margin-top: 0px; font-size: 36px"><code data-trim data-noescape>
+                fetch('fizzbuzz.wasm')
+                  .then(response => response.arrayBuffer())
+                  .then(bytes => WebAssembly.instantiate(bytes))
+                  .then(results => {
+                    results.instance.exports.fizzTheBuzz(15);
+                  })
+              </code></pre>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <div class="text-slide">
+            <h1 class="title">Calling JavaScript from a WebAssembly Module</h1>
+            <article class="main-text">
+              <pre style="margin-top: 0px; font-size: 36px"><code data-trim data-noescape>
+                let imports = {
+                  fizzbuzz: {
+                    callback: x => console.log(x)
+                  }
+                }
+
+                WebAssembly.instantiate(bytes, imports)
+              </code></pre>
+            </article>
+          </div>
+        </section>
+
+        <section>
           <div class="splash-slide">
             <h1 class="splash">Demo</h1>
           </div>
@@ -276,7 +309,7 @@
                 <li><a href="https://developer.mozilla.org/en-US/docs/WebAssembly">MDN Articles</a></li>
                 <li><a href="https://webassembly.org/">WebAssembly website (command reference)</a></li>
                 <li><a href="https://github.com/webassembly/wabt">The WebAssembly Binary Toolkit</a> - assembler and disassembler</li>
-                <li>WebAssembly Toolkit for VSCode - assembly code highlighter and assembler</li>
+                <li><a href="https://marketplace.visualstudio.com/items?itemName=dtsvet.vscode-wasm">WebAssembly Toolkit for VSCode</a> - assembly code highlighter and assembler</li>
                 <li><a href="https://www.rust-lang.org/en-US/">Rust</a> - has built-in support for WebAssembly</li>
                 <li><a href="https://github.com/kripken/emscripten">Emscripten</a> - LLVM bitcode to WebAssembly</li>
                 <li><a href="https://github.com/appcypher/awesome-wasm-langs">Other Languages</a> - .NET, Elixir, Go, Java, Python, et al.</li>
