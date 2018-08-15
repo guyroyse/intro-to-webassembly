@@ -213,13 +213,13 @@
           <div class="text-slide">
             <h1 class="title">Virtual Machines</h1>
             <span style="grid-row: 2; grid-column: 3; width: 100%; height: 100%;" class="green box-small">Source</span>
-            <span style="grid-row: 2; grid-column: 5; width: 100%; height: 100%;" class="green box-small">Virtual Machine</span>
-            <span style="grid-row: 3; grid-column: 3; font-size: 60px;">↓</span>
-            <span style="grid-row: 3; grid-column: 5; font-size: 60px;">↓</span>
-            <span style="grid-row: 4; grid-column: 3; width: 100%; height: 100%;" class="green box-small">Byte Code</span>
-            <span style="grid-row: 4; grid-column: 4; font-size: 60px;">→</span>
-            <span style="grid-row: 4; grid-column: 5; width: 100%; height: 100%;" class="green box-small">Execute</span>
-            <span style="grid-row: 4; grid-column: 6; font-size: 60px;">→</span>
+            <span style="grid-row: 2; grid-column: 5; width: 100%; height: 100%;" class="yellow box-small">Virtual<br/>Machine</span>
+            <span style="grid-row: 3; grid-column: 3; align-self: center; font-size: 60px;">↓</span>
+            <span style="grid-row: 3; grid-column: 5; align-self: center; font-size: 60px;">↓</span>
+            <span style="grid-row: 4; grid-column: 3; width: 100%; height: 100%;" class="blue box-small">Bytecode</span>
+            <span style="grid-row: 4; grid-column: 4; align-self: center; font-size: 60px;">→</span>
+            <span style="grid-row: 4; grid-column: 5; width: 100%; height: 100%;" class="purple box-small">Execute</span>
+            <span style="grid-row: 4; grid-column: 6; align-self: center; font-size: 60px;">→</span>
             <img class="left-picture"
                  style="border-style: none; grid-row: 4; grid-column: 7; justify-self: start; align-self: center;"
                  src="images/sample-icon.svg" />
@@ -229,19 +229,34 @@
 
         <section data-background="images/peanut-butter-cups.jpg">
           <div class="splash-slide">
-            <h1 class="splash" style="text-shadow: 0px 0px 100px white, 0px 0px 50px white, 0px 0px 25px white;">Web + Assembly = WebAssembly</h1>
+            <h1 class="splash" style="text-shadow: 0px 0px 100px white, 0px 0px 50px white, 0px 0px 25px white; font-size: 90px;">Web + Assembly = WebAssembly</h1>
           </div>
         </section>
 
         <section>
           <div class="text-slide">
-            <h1 class="title">Concepts</h1>
+            <h1 class="title">How WebAssembly Works</h1>
+            <span style="grid-row: 2; grid-column: 2 / span 2; width: 100%; height: 100%;" class="green box-small">Source<br/>&lt;fizzbuzz.rs&gt;</span>
+            <span style="grid-row: 2; grid-column: 6 / span 2; width: 100%; height: 100%;" class="yellow box-small">JavaScript<br/>&lt;app.js&gt;</span>
+            <span style="grid-row: 3; grid-column: 2 / span 2; align-self: center; font-size: 90px;">↓</span>
+            <span style="grid-row: 3; grid-column: 6 / span 2; align-self: center; font-size: 90px;">↓</span>
+            <span style="grid-row: 4; grid-column: 2 / span 2; width: 100%; height: 100%;" class="blue box-small">Bytecode<br/>&lt;fizzbuzz.wasm&gt;</span>
+            <span style="grid-row: 4; grid-column: 4 / span 2; align-self: center; font-size: 90px;">→</span>
+            <span style="grid-row: 4; grid-column: 6 / span 2; width: 100%; height: 100%;" class="purple box-small">Browser</span>
+            <img class="logo" src="images/real-robot.png" />
+          </div>
+        </section>
+
+        <section>
+          <div class="text-slide">
+            <h1 class="title">WebAssembly Modules</h1>
             <article class="main-text">
               <ul>
-                <li>bunch of exported functions</li>
-                <li>also does imports for callbacks</li>
-                <li>only handles numbers (i32, i64, f32, f64)</li>
-                <li>has features for shared memory as well for more complex types</li>
+                <li>Represented as a .wasm file</li>
+                <li>Content-Type: application/wasm</li>
+                <li>Contains functions exposed via exports</li>
+                <li>Can accept functions via imports</li>
+                <li>Functions can only take and return numbers (i32, i64, f32, f64)</li>
               </ul>
             </article>
           </div>
@@ -258,115 +273,16 @@
             <h1 class="title">Resources</h1>
             <article class="main-text">
               <ul>
-                <li>https://github.com/webassembly/wabt</li>
-                <li>VSCode Plugin</li>
-                <li>Rust</li>
-                <li>MDN Articles</li>
-                <li>WebAssembly website (command reference)</li>
-                <li>Other Languages</li>
-                <li>Emscripten</li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/WebAssembly">MDN Articles</a></li>
+                <li><a href="https://webassembly.org/">WebAssembly website (command reference)</a></li>
+                <li><a href="https://github.com/webassembly/wabt">The WebAssembly Binary Toolkit</a> - assembler and disassembler</li>
+                <li>WebAssembly Toolkit for VSCode - assembly code highlighter and assembler</li>
+                <li><a href="https://www.rust-lang.org/en-US/">Rust</a> - has built-in support for WebAssembly</li>
+                <li><a href="https://github.com/kripken/emscripten">Emscripten</a> - LLVM bitcode to WebAssembly</li>
+                <li><a href="https://github.com/appcypher/awesome-wasm-langs">Other Languages</a> - .NET, Elixir, Go, Java, Python, et al.</li>
+                <li><a href="https://github.com/mbasso/awesome-wasm">Awesome Wasm</a> - curated list of awesome WebAssembly things</li>
               </ul>
             </article>
-          </div>
-        </section>
-
-<!-- below this point are sample slides -->
-
-        <section>
-          <div class="text-slide">
-            <h1 class="title">Lorem Ipsum Dolor</h1>
-            <article class="main-text">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse vehicula felis et efficitur fringilla.</p>
-              <ul>
-                <li>Lorem ipsum dolor</li>
-                <li>Sit amet</li>
-                <li>Consectetur adipiscing elit</li>
-              </ul>
-            </article>
-            <img class="logo" src="images/real-robot.png" />
-          </div>
-        </section>
-
-        <section>
-          <div class="picture-slide">
-            <h1 class="title">Lorem Ipsum Dolor</h1>
-            <img class="main-picture" src="images/sample-image.jpg" />
-            <img class="logo" src="images/real-robot.png" />
-          </div>
-        </section>
-
-        <section>
-          <div class="text-text-slide">
-            <h1 class="title">Lorem Ipsum Solor</h1>
-            <article class="left-text">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse vehicula felis et efficitur fringilla.</p>
-              <ul>
-                <li>Lorem ipsum dolor</li>
-                <li>Sit amet</li>
-                <li>Consectetur adipiscing elit</li>
-              </ul>
-            </article>
-            <article class="right-text">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse vehicula felis et efficitur fringilla.</p>
-              <ul>
-                <li>Lorem ipsum dolor</li>
-                <li>Sit amet</li>
-                <li>Consectetur adipiscing elit</li>
-              </ul>
-            </article>
-            <img class="logo" src="images/real-robot.png" />
-          </div>
-        </section>
-
-        <section>
-          <div class="picture-picture-slide">
-            <h1 class="title">Lorem Ipsum Dolor</h1>
-            <img class="left-picture" src="images/sample-image.jpg" />
-            <img class="right-picture" src="images/headshot.jpg" />
-            <img class="logo" src="images/real-robot.png" />
-          </div>
-        </section>
-
-        <section>
-          <div class="picture-text-slide">
-            <h1 class="title">Lorem Ipsum Dolor</h1>
-            <img class="left-picture" src="images/sample-image.jpg" />
-            <article class="right-text">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse vehicula felis et efficitur fringilla.</p>
-              <ul>
-                <li>Lorem ipsum dolor</li>
-                <li>Sit amet</li>
-                <li>Consectetur adipiscing elit</li>
-              </ul>
-              <pre><code data-trim data-noescape>
-function foo(y) {
-  <mark>let x = 42;</mark>
-  return x * y;
-}
-              </code></pre>
-            </article>
-            <img class="logo" src="images/real-robot.png" />
-          </div>
-        </section>
-
-        <section>
-          <div class="text-picture-slide">
-            <h1 class="title">Lorem Ipsum Dolor</h1>
-            <article class="left-text">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse vehicula felis et efficitur fringilla.</p>
-              <ul>
-                <li>Lorem ipsum dolor</li>
-                <li>Sit amet</li>
-                <li>Consectetur adipiscing elit</li>
-              </ul>
-            </article>
-            <img class="right-picture" src="images/sample-image.jpg" />
-            <img class="logo" src="images/real-robot.png" />
           </div>
         </section>
 
