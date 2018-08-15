@@ -33,24 +33,17 @@
 
         <section data-background="images/adding-machine.jpg">
           <div class="title-slide">
-            <h1 style="
-              grid-row: 1;
-              text-align: right;
-              margin-right: 30px;
-              text-shadow: white 0px 0px 50px;">What's Old is New</h1>
-            <h2 style="
-              grid-row: 2 / span 2;
-              grid-column: 5 / span 4;
-              text-align: right;
-              margin-right: 30px;
-              color: white;">An Introduction to WebAssembly</h2>
+            <h1 style="grid-row: 1; text-align: right; margin-right: 30px;
+                text-shadow: white 0px 0px 50px;">
+              What's Old is New</h1>
+            <h2 style=" grid-row: 2 / span 2; grid-column: 5 / span 4;
+                text-align: right; margin-right: 30px;
+                color: white;">
+              An Introduction to WebAssembly</h2>
             <img
               class="logo"
-              style="
-                grid-column: 1 / span 2;
-                justify-self: start;"
-              src="images/datarobot-white-logo.svg"
-            />
+              style="grid-column: 1 / span 2; justify-self: start;"
+              src="images/datarobot-white-logo.svg" />
           </div>
         </section>
 
@@ -76,14 +69,79 @@
           </div>
         </section>
 
+        <section data-background="#09f">
+          <div class="splash-slide">
+            <h1 class="splash" style="color: white">The Web</h1>
+          </div>
+        </section>
+
         <section>
           <div class="text-slide">
-            <h1 class="title">The Problem with JavaScript</h1>
-            <article class="main-text">
+            <h1 class="title">JavaScript in the Browser</h1>
+            <article class="main-text" style="align-self: center;">
+              <p>
+                <span class="green box" style="width: 250px; height: 250px;">Download</span>
+                <span style="font-size: 60px;">→</span>
+                <span class="blue box" style="width: 250px; height: 250px;">Parse</span>
+                <span style="font-size: 60px;">→</span>
+                <span class="purple box" style="width: 250px; height: 250px;">Execute</span>
+              </p>
+            </article>
+            <img class="logo" src="images/real-robot.png" />
+          </div>
+        </section>
+
+        <section data-background="images/rubber-ducks.jpg">
+          <div class="splash-slide">
+            <h1 class="splash">So Many Choices</h1>
+          </div>
+        </section>
+
+        <section data-background="images/pile-of-tools.jpg">
+          <div class="text-slide" style="background-color: rgba(0, 0, 0, 0.6); padding-top: 20px; margin: auto 150px;">
+            <h1 class="title" style="color: white;">A Simple JavaScript Environment</h1>
+            <article class="main-text" style="color: white;">
+              <p>It's easy! Just use these simple tools.</p>
               <ul>
-                <li>JavaScript has to be downloaded and parsed</li>
-                <li>JavaScript is the only choice</li>
+                <li>npm or yarn</li>
+                <li>Bower</li>
+                <li>Webpack</li>
+                <li>Babel</li>
+                <li>Grunt or Gulp</li>
+                <li>live-server</li>
+                <li>React and Redux</li>
+                <li>Mocha, Chai, and Sinon</li>
               </ul>
+            </article>
+          </div>
+        </section>
+
+        <section data-background="#09f">
+          <div class="splash-slide">
+            <h1 class="splash" style="color: white">The Assembly</h1>
+          </div>
+        </section>
+
+        <section>
+          <div class="picture-text-slide">
+            <h1 class="title">Machine Code</h1>
+            <img class="left-picture"
+                 style="border-style: none; grid-row: 2; grid-column: 2; justify-self: right"
+                 src="images/sample-icon.svg" />
+            <article class="right-text" style="grid-column: 3 / span 5; justify-self: stretch;">
+              <pre style="margin-top: 0px;"><code data-trim data-noescape>
+                0200  A0 00
+                0202  A2 00
+                0204  8A
+                0205  85 C4
+                0207  20 22 F0
+                020A  C8
+                020B  70 05
+                020D  4C 07 02
+                0210  B8
+                0211  E8
+                0212  4C 04 02
+              </code></pre>
             </article>
             <img class="logo" src="images/real-robot.png" />
           </div>
@@ -91,29 +149,87 @@
 
         <section>
           <div class="text-slide">
-            <h1 class="title">What is Web Assembly (Assembly Portion)</h1>
-            <article class="main-text">
-              <ul>
-                <li>microprocessors &amp; machine code</li>
-                <li>assembly language &amp; assemblers</li>
-                <li>compilers</li>
-                <li>virtual machines (JVM, CLR) and bytecode</li>
-              </ul>
-            </article>
+            <h1 class="title">Assembly Code</h1>
+            <pre style="grid-column: 2 / span 2; grid-row: 2 / span 3; align-self: center; justify-self: stretch; margin-top: 0px;"><code data-trim data-noescape>
+                      LDY #$00
+                      LDX #$00
+              LOOP2   TXA
+                      STA $00C4
+              LOOP1   JSR SCAN
+                      INY
+                      BVS RESET
+                      JMP LOOP1
+              RESET   CLV
+                      INX
+                      JMP LOOP2
+            </code></pre>
+            <div style="grid-column: 4 / span 2; grid-row: 2 / span 3; align-self: center; font-size: 120px;">→</div>
+            <pre style="grid-column: 6 / span 2; grid-row: 2 / span 3; align-self: center; justify-self: stretch; margin-top: 0px;"><code data-trim data-noescape>
+              0200  A0 00
+              0202  A2 00
+              0204  8A
+              0205  85 C4
+              0207  20 22 F0
+              020A  C8
+              020B  70 05
+              020D  4C 07 02
+              0210  B8
+              0211  E8
+              0212  4C 04 02
+            </code></pre>
+            <img class="logo" src="images/real-robot.png" />
           </div>
         </section>
 
         <section>
           <div class="text-slide">
-            <h1 class="title">The Solution (Web Assembly)</h1>
-            <article class="main-text">
-              <ul>
-                <li>assembly brought to the browser (web) 50% web 50% assembly</li>
-                <li>allows multiple languages</li>
-                <li>smaller footprint for downloading</li>
-                <li>no need to parse</li>
-                </ul>
-            </article>
+            <h1 class="title">Compiled Code</h1>
+            <pre style="grid-column: 2 / span 3; grid-row: 2 / span 3; align-self: center; justify-self: stretch; margin-top: 0px;"><code data-trim data-noescape>
+              for (int x = 0; x < 12; x++) {
+                for (int y = 0; y < 12; y++) {
+                  scan(x, y);
+                }
+              }
+            </code></pre>
+            <div style="grid-column: 5; grid-row: 2 / span 3; align-self: center; font-size: 120px;">→</div>
+            <pre style="grid-column: 6 / span 2; grid-row: 2 / span 3; align-self: center; justify-self: stretch; margin-top: 0px;"><code data-trim data-noescape>
+              0200  A0 00
+              0202  A2 00
+              0204  8A
+              0205  85 C4
+              0207  20 22 F0
+              020A  C8
+              020B  70 05
+              020D  4C 07 02
+              0210  B8
+              0211  E8
+              0212  4C 04 02
+            </code></pre>
+            <img class="logo" src="images/real-robot.png" />
+          </div>
+        </section>
+
+        <section>
+          <div class="text-slide">
+            <h1 class="title">Virtual Machines</h1>
+            <span style="grid-row: 2; grid-column: 3; width: 100%; height: 100%;" class="green box-small">Source</span>
+            <span style="grid-row: 2; grid-column: 5; width: 100%; height: 100%;" class="green box-small">Virtual Machine</span>
+            <span style="grid-row: 3; grid-column: 3; font-size: 60px;">↓</span>
+            <span style="grid-row: 3; grid-column: 5; font-size: 60px;">↓</span>
+            <span style="grid-row: 4; grid-column: 3; width: 100%; height: 100%;" class="green box-small">Byte Code</span>
+            <span style="grid-row: 4; grid-column: 4; font-size: 60px;">→</span>
+            <span style="grid-row: 4; grid-column: 5; width: 100%; height: 100%;" class="green box-small">Execute</span>
+            <span style="grid-row: 4; grid-column: 6; font-size: 60px;">→</span>
+            <img class="left-picture"
+                 style="border-style: none; grid-row: 4; grid-column: 7; justify-self: start; align-self: center;"
+                 src="images/sample-icon.svg" />
+            <img class="logo" src="images/real-robot.png" />
+          </div>
+        </section>
+
+        <section data-background="images/peanut-butter-cups.jpg">
+          <div class="splash-slide">
+            <h1 class="splash" style="text-shadow: 0px 0px 100px white, 0px 0px 50px white, 0px 0px 25px white;">Web + Assembly = WebAssembly</h1>
           </div>
         </section>
 
@@ -124,9 +240,16 @@
               <ul>
                 <li>bunch of exported functions</li>
                 <li>also does imports for callbacks</li>
-                <li>has features for shared memory as well</li>
+                <li>only handles numbers (i32, i64, f32, f64)</li>
+                <li>has features for shared memory as well for more complex types</li>
               </ul>
             </article>
+          </div>
+        </section>
+
+        <section>
+          <div class="splash-slide">
+            <h1 class="splash">Demo</h1>
           </div>
         </section>
 
@@ -262,6 +385,7 @@ function foo(y) {
         width: '100%',
         height: '100%',
         controlsLayout: 'edges',
+        slideNumber: true,
         dependencies: [
           { src: 'plugin/markdown/marked.js' },
           { src: 'plugin/markdown/markdown.js' },

@@ -77,6 +77,39 @@ section.has-light-background {
   padding: 15px;
 }
 
+.reveal {
+  span.blue {
+    background-color: #7FCCFF;
+  }
+  span.green {
+    background-color: #C9E58B;
+  }
+  span.purple {
+    background-color: #BA95CF;
+  }
+  span.pink {
+    background-color: #FF969D;
+  }
+  span.yellow {
+    background-color: #FFDF7F;
+  }
+  span.box {
+    font-family: Arial;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  span.box-small {
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 @mixin has-grid {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -106,6 +139,9 @@ section.has-light-background {
 @mixin has-title {
   .title {
     grid-column: 1 / span 8;
+  }
+  h1 {
+    font-size: 60px;
   }
 }
 
@@ -300,14 +336,6 @@ section.has-light-background {
   @include has-title();
   @include has-left-text();
   @include has-right-picture();
-  @include has-icon-logo();
-}
-
-.text-with-icon-slide {
-  @include has-grid();
-  @include has-title();
-  @include has-left-picture();
-  @include has-right-text();
   @include has-icon-logo();
 }
 
