@@ -35,6 +35,7 @@ function selectedMechanism() {
 
 function fetchFizzBuzz(mechanism) {
   if (mechanism === 'js') return jsFizzBuzz()
+  if (mechanism === 'c') return cFizzBuzz()
   if (mechanism === 'rust') return rustFizzBuzz()
   if (mechanism === 'wabt') return wabtFizzBuzz()
 }
@@ -48,6 +49,15 @@ function displayResult(result) {
 
 function jsFizzBuzz() {
   return Promise.resolve(new JsFizzBuzz(onFizzBuzzComputed))
+}
+
+function cFizzBuzz() {
+  let imports = {
+    env: {
+      callback: onFizzBuzzComputed
+    }
+  }
+  return wasmFizzBuzz('c/fizzbuzz.wasm', imports)
 }
 
 function rustFizzBuzz() {
