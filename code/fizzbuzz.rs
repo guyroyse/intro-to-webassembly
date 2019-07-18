@@ -11,12 +11,6 @@ pub fn fizzbuzz(n: i32) -> i32 {
     result = -1;
   }
 
-  unsafe { callback(result); }
-
   return result;
 
-}
-
-extern {
-  fn callback(n: i32);
 }
