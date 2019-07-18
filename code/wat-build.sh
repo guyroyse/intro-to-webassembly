@@ -1,3 +1,1 @@
-rm fizzbuzz.wasm
-
-~/wabt/bin/wat2wasm fizzbuzz.wat
+wat2wasm fizzbuzz.wat
