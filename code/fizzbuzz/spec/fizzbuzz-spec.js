@@ -1,8 +1,8 @@
 describe("FizzBuzz", () => {
 
   [
-    { module: '/fizzbuzz.wasm', description: "WebAssembly Text" },
-    { module: '/fizzbuzz.rs.wasm', description: "Rust" },
+    { module: '/wat/fizzbuzz.wasm', description: "WebAssembly Text" },
+    { module: '/rust/target/wasm32-unknown-unknown/release/fizzbuzz.wasm', description: "Rust" },
   ].forEach(scenario => {
 
     describe(scenario.description, () => {

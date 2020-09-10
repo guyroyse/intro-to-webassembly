@@ -1,0 +1,11 @@
+[package]
+name = "fizzbuzz"
+version = "0.1.0"
+authors = ["Guy Royse <guy@guyroyse.com>"]
+
+[lib]
+crate-type = ["cdylib"]
+path = "src/fizzbuzz.rs"
+
+[profile.release]
+lto = true
