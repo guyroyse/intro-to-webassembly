@@ -18,7 +18,7 @@ From the folder this README is in, enter the following command:
 
     $ cargo build --target wasm32-unknown-unknown --release
 
-This will make a release build and place it in `target/wasm32-unknown-unknown/release/fizzbuzz.wasm`. The file should be a couple hundred bytes in size. If you like bigger modules taht do the same thing, you can do a debug build instead.
+This will make a release build and place it in `target/wasm32-unknown-unknown/release/fizzbuzz.wasm`. The file should be a couple hundred bytes in size. If you like bigger modules that do the same thing, you can do a debug build instead.
 
     $ cargo build --target wasm32-unknown-unknown
 
