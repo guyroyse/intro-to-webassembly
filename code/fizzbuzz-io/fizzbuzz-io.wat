@@ -29,7 +29,7 @@
         ;; run the counter through fizzbuzz
         (call $fizzbuzz (local.get $counter))
 
-        ;; break if counter is 15
+        ;; break if counter is 50
         (br_if 1 (i32.eq (local.get $counter) (i32.const 50)))
 
         ;; otherwise carry on
